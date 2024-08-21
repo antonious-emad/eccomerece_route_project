@@ -331,7 +331,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.blueColor)),
                       ),
-
                       SizedBox(
                           height: 50,
                           child: ListView.builder(
@@ -365,9 +364,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                   ),
                                 );
                               })),
-
-
-
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.w),
                         child: const Text("Color",
@@ -376,11 +372,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xFF06004F))),
                       ),
-
-
-
-
-
                       Padding(
                         padding:  EdgeInsets.symmetric(horizontal: 16.w ),
                         child: SizedBox(

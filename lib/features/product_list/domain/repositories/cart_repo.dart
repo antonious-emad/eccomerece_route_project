@@ -5,5 +5,5 @@ import '../../../home/data/models/CartModel.dart';
 
 abstract class CartRepo {
   Future<Either<Failures, CartModel>> getCarts();
-
+  Future<Either<Failures, CartModel>> updateCart(String productId,int count);
 }

@@ -29,6 +29,6 @@ class FavouritesTab extends StatelessWidget {
                   : const SizedBox();
         },
       ),
-    );
+);
   }
 }

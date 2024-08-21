@@ -1,5 +1,6 @@
 
 import 'package:eccemorce_route_project/features/product_list/presentation/pages/product_details_from_wishlist.dart';
+import 'package:eccemorce_route_project/features/product_list/presentation/pages/visa.dart';
 import 'package:eccemorce_route_project/features/splach/presentation/pages/splach_screen.dart';
 import 'package:flutter/material.dart';
 import '../../features/fogot_password/presentation/pages/forgot_password.dart';
@@ -27,6 +28,7 @@ class AppRoute {
   static const String resetPassword = "resetPassword";
   static const String cartScreen = "cart";
   static const String changePassword = "changPassword";
+  static const String visaScreen = "visaScreen";
 }
 
 class Routes {
@@ -66,7 +68,9 @@ class Routes {
       case AppRoute.changePassword:
         return MaterialPageRoute(
             builder: (context) => ChangePasswordScreen(), settings: settings);
-
+      case AppRoute.visaScreen:
+        return MaterialPageRoute(
+            builder: (context) => VisaScreen(), settings: settings);
       default:
         return MaterialPageRoute(
           builder: (context) {

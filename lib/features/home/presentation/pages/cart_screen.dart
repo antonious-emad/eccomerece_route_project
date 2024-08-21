@@ -1,9 +1,8 @@
-
-import 'package:eccemorce_route_project/features/home/presentation/manager/home_bloc.dart';
+import 'package:eccemorce_route_project/config/routes/routes.dart';
+import 'package:eccemorce_route_project/features/product_list/domain/use_cases/update_cart_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../config.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../product_list/domain/use_cases/add_to_wish_list_use_case.dart';
@@ -23,13 +22,12 @@ class CartScreen extends StatelessWidget {
       create: (context) => ProductListBloc(
           getIt<ProductListUseCase>(),
           getIt<GetCartsUseCase>(),
+          getIt<UpdateCartUseCase>(),
           getIt<AddToWishListUseCase>(),
-          getIt<DelFormWishListUseCase>())
+          getIt<DelFormWishListUseCase>(),
+      )
         ..add(GetCart()),
 ),
-    BlocProvider(
-      create: (context) =>getIt<HomeBloc>(),
-    ),
   ],
   child: BlocBuilder<ProductListBloc, ProductListState>(
         builder: (context, state) {
@@ -101,7 +99,11 @@ class CartScreen extends StatelessWidget {
                                       ),
                                     ),
                                     InkWell(
-                                      onTap: () {},
+                                      onTap: () async{
+                                        BlocProvider.of<ProductListBloc>(context).add(GetPaymentAuthTokenEvent(email: "antoniousemad75@gmail.com", phone: "01220156988", firstname: "Antonious", lastname: "Emad", amount:'${state.cartModel?.data?.totalCartPrice}'.toString()));
+                                         await Future.delayed((Duration(minutes: 1)));
+                                         Navigator.pushNamed(context, AppRoute.visaScreen);
+                                        },
                                       child: Container(
                                         height: 48.h,
                                         decoration: BoxDecoration(
@@ -131,4 +133,3 @@ class CartScreen extends StatelessWidget {
 );
   }
 }
-

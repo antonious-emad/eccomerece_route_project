@@ -54,11 +54,13 @@ import 'features/product_list/domain/repositories/product_list_repo.dart'
     as _i35;
 import 'features/product_list/domain/use_cases/add_to_wish_list_use_case.dart'
     as _i22;
-import 'features/product_list/domain/use_cases/del_from_use_case.dart' as _i38;
+import 'features/product_list/domain/use_cases/del_from_use_case.dart' as _i39;
 import 'features/product_list/domain/use_cases/get_carts_use_case.dart' as _i31;
 import 'features/product_list/domain/use_cases/product_list_use_case.dart'
     as _i37;
-import 'features/product_list/presentation/bloc/product_list_bloc.dart' as _i39;
+import 'features/product_list/domain/use_cases/update_cart_use_case.dart'
+    as _i38;
+import 'features/product_list/presentation/bloc/product_list_bloc.dart' as _i40;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -124,13 +126,16 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i36.ProductListRepoImpl(gh<_i16.ProductRemoteDS>()));
     gh.factory<_i37.ProductListUseCase>(
         () => _i37.ProductListUseCase(gh<_i35.ProductListRepo>()));
-    gh.factory<_i38.DelFormWishListUseCase>(
-        () => _i38.DelFormWishListUseCase(gh<_i28.DelFromRepo>()));
-    gh.factory<_i39.ProductListBloc>(() => _i39.ProductListBloc(
+    gh.factory<_i38.UpdateCartUseCase>(
+        () => _i38.UpdateCartUseCase(gh<_i23.CartRepo>()));
+    gh.factory<_i39.DelFormWishListUseCase>(
+        () => _i39.DelFormWishListUseCase(gh<_i28.DelFromRepo>()));
+    gh.factory<_i40.ProductListBloc>(() => _i40.ProductListBloc(
           gh<_i37.ProductListUseCase>(),
           gh<_i31.GetCartsUseCase>(),
+          gh<_i38.UpdateCartUseCase>(),
           gh<_i22.AddToWishListUseCase>(),
-          gh<_i38.DelFormWishListUseCase>(),
+          gh<_i39.DelFormWishListUseCase>(),
         ));
     return this;
   }

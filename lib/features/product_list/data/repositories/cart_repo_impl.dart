@@ -23,4 +23,9 @@ class CartRepoImpl implements CartRepo {
   Future<String?> getToken() async {
     return CacheData.getData("token");
   }
+  @override
+  Future<Either<Failures, CartModel>> updateCart(String productId,int count) async {
+    String? token = await getToken();
+    return remoteDS.updateCart(productId,count ,token ?? "");
+  }
 }

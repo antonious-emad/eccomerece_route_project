@@ -42,4 +42,17 @@ class ApiManager {
     return dio.delete(Constants.baseUrl + endPoint + productId!,
         options: Options(headers: {"token": token}));
   }
+Future<Response> postDataForPaymnet(
+      {required String endPoint, required Map<String, dynamic> data}) async {
+    return await dio.post(Constants.paymentBaseUrl+endPoint, data: data);
+  }
+
+   Future<Response> getDataForPayment(
+      {required String endPoint, required Map<String, dynamic> query}) {
+    return dio.get(Constants.paymentBaseUrl+endPoint, queryParameters: query);
+  }
+
+
+
+
 }

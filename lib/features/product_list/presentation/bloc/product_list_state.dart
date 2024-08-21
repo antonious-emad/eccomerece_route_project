@@ -5,6 +5,26 @@ enum ScreenStatus {
   loading,
   successfully,
   failures,
+  updateCartstate,
+  loadingAuthTokenPaymentState,
+  successAuthTokenPaymentState,
+  errorAuthTokenPaymentState,
+  loadingOrderIdPaymentState,
+  successOrderIdPaymentState,
+  erroOrderIdPaymentState,
+  
+  loadingRequestTokenCardPaymentState,
+  successRequestTokenCardPaymentState,
+  errorRequestTokenCardPaymentState,
+  
+  loadingRequestTokenKioskPaymentState,
+  successRequestTokenKioskPaymentState,
+  errorRequestTokenKioskPaymentState,
+
+  loadingReferenceCodePaymentState,
+  successReferenceCodePaymentState,
+  errorReferenceCodePaymentState,
+
 }
 
 class ProductListState {

@@ -4,6 +4,7 @@ import 'package:eccemorce_route_project/features/home/presentation/pages/tabs/fa
 import 'package:eccemorce_route_project/features/home/presentation/pages/tabs/home_tab.dart';
 import 'package:eccemorce_route_project/features/home/presentation/pages/tabs/profile_tab.dart';
 import 'package:eccemorce_route_project/features/home/presentation/pages/tabs/settings_tab.dart';
+import 'package:eccemorce_route_project/features/product_list/domain/use_cases/update_cart_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,8 +57,10 @@ class HomeScreen extends StatelessWidget {
           create: (context) => ProductListBloc(
               getIt<ProductListUseCase>(),
               getIt<GetCartsUseCase>(),
-              getIt<AddToWishListUseCase>(),
-              getIt<DelFormWishListUseCase>())
+            getIt<UpdateCartUseCase>(),
+            getIt< AddToWishListUseCase>(),
+            getIt<DelFormWishListUseCase>(),
+          )
             ..add(GetAllProducts())
             ..add(GetWish()),
         )

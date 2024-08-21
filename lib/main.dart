@@ -4,11 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'config.dart';
 import 'config/routes/routes.dart';
 import 'core/cache/shared_prefrence.dart';
+import 'core/network/remote/dio_helper.dart';
 import 'core/utils/observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheData.init();
+  DioHelper.init();
   configureDependencies();
   Bloc.observer = MyBlocObserver();
   String? token = await CacheData.getData("token");
